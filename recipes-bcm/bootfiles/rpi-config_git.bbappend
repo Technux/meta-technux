@@ -1,0 +1,2 @@
+inherit technux-rpi-common
+

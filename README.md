@@ -11,6 +11,17 @@ Supported board types
 =====================
 * qemux86
 * qemux86-64
+* raspberrypi
+  - Depends on meta-raspberrypi
+* technux-rpi
+  - Depends on meta-raspberrypi
+  - How to use it:
+    1. Besides meta-technux you must also
+       add meta-raspberrypi to bblayers.conf
+    2. Set MACHINE to technux-rpi in local.conf
+    3. bitbake technux-rpi-image
+    4. Use generated sdimg (same description as in
+       meta-raspberrypi)
 
 
 Contributions
