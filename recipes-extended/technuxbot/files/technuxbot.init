@@ -1,0 +1,53 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          technuxbot
+# Required-Start:
+# Required-Stop:
+# Default-Start:     3 5
+# Default-Stop:      0 6
+# Short-Description: Starts TechnuxBot
+### END INIT INFO
+
+DAEMON=/usr/bin/ircbot.py
+CONF_FILE=/etc/technuxbot.conf
+TBOTOPTS="-c $CONF_FILE"
+DESC="TechnuxBot"
+
+# source function library
+. /etc/init.d/functions
+
+test -f $DAEMON || exit 0
+test -f $CONF_FILE || exit 0
+
+ACTION="$1"
+case "$ACTION" in
+	start)
+		echo -n "Starting $DESC: "
+		start-stop-daemon --start --quiet --exec $DAEMON -- $TBOTOPTS
+		echo "."
+		;;
+	stop)
+		echo -n "Stopping $DESC: "
+		start-stop-daemon --stop --quiet --exec $DAEMON
+		echo "."
+		;;
+	restart|force-reload)
+		echo -n "Restarting $DESC: "
+		start-stop-daemon --stop --quiet --exec $DAEMON
+		sleep 1
+		start-stop-daemon --start --quiet --exec $DAEMON -- $TBOTOPTS
+		echo "."
+		;;
+	status)
+		status $DAEMON
+		exit $?
+		;;
+	*)
+		N=${0##*/}
+		N=${N#[SK]??}
+		echo "Usage: $N {start|stop|status|restart|force-reload}" >&2
+		exit 1
+		;;
+esac
+
+exit 0
