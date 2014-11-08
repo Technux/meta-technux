@@ -3,17 +3,17 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 inherit kernel
 require recipes-kernel/linux/linux-yocto.inc
 
-KBRANCH = "technux-v3.14-dev"
+KBRANCH = "technux-dev"
 SRC_URI = "git://github.com/Technux/linux.git;protocol=http;branch=${KBRANCH};nocheckout=1"
 SRC_URI += "file://defconfig"
 
 LINUX_VERSION ?= "3.14"
-LINUX_VERSION_EXTENSION ?= "-technux"
+LINUX_VERSION_EXTENSION = "-technux-dev"
 
 
-SRCREV="0c0f1ae493d6390001dd8ebb0d69befb9369de76"
+SRCREV="2e0198e22d676a332ec1319073e334c859953a96"
 
-PR = "r3"
+PR = "r4"
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
 # Override COMPATIBLE_MACHINE to include your machine in a bbappend
