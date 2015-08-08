@@ -3,7 +3,7 @@ meta-technux
 This layer contains Technux additions, it depends on:
 
 URI: https://github.com/Technux/poky
-branch: technux (or technux-dev for development purpose)
+branch: master (or technux-dev for development purpose)
 revision: HEAD
 
 
@@ -26,5 +26,7 @@ Supported board types
 
 Contributions
 =============
-Either send a 'git format-patch' to support@technux.se or become a member of
-technux (see http://www.technux.se/Support/).
+The preferred way is to use 'gerrit' (dev.technux.se/gerrit) for contributions.
+You can also send a 'git format-patch' to support@technux.se.
+
+Bug-tracking and ongoing features can be tracked at http://dev.technux.se
