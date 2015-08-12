@@ -57,3 +57,9 @@ do_install_append_technux-debug(){
     echo "technux-debug"
     print_overrides
 }
+
+do_install_append_${MACHINE}() {
+    echo "===================="
+    echo "machine = ${MACHINE}"
+    print_overrides
+}
